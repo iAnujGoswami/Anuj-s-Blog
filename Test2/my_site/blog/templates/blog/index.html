@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    My Blog
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/post.css" %}" />
+    <link rel="stylesheet" href="{% static "blog/index.css" %}" />
+{% endblock %}
+
+{% block content %}
+    <header id="main-navigation">
+        <h1><a href="">Anuj' Blog</a></h1>
+        <nav>
+            <a href="">All Posts</a>
+        </nav>
+    </header>
+
+   
+    <section id="welcome">
+        <header>
+            <img src="{% static "blog/images/Anuj_Goswami_photo.jpg" %}" alt="ANUJ - The Author Of This Blog">
+            <h2>ANUJ GOSWAMI'S BLOG</h2>
+        </header>
+        <p>Hi, I am Anuj I love to Blog about Weight Traning and Football !</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>My latest Thoughts</h2>
+
+        <ul>
+            {% for post in posts %}
+               {% include "blog/includes/post.html" %}
+            {% endfor %}
+        </ul>
+    </section>
+    <section id="about">
+        <h2>What I do</h2>
+        <p>I love programming, I love to help others and I enjoy exploring new technology </p>
+        <p>My Goal is to keep on growing as a human being</p>
+
+    </section>
+{% endblock %}
